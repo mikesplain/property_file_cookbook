@@ -1,6 +1,6 @@
 #
 # Author:: Mike Splain(<msplain@paypal.com>)
-# Cookbook Name:: propertyman
+# Cookbook Name:: property_file
 # Resource:: default
 
 def whyrun_supported?
@@ -8,7 +8,7 @@ def whyrun_supported?
 end
 
 def check_resource(resource)
-  if resource.nil? || resource.file_path.nil? || resource.env.nil?
+  if resource.nil? || resource.name.nil? || resource.env.nil?
     Chef::Application.fatal!('You must provide a file path and env.')
   end
 end
@@ -18,15 +18,30 @@ action :create do
 
   check_resource(new_resource)
 
-  converge_by("Loading Attributes from data bags") do
+  app_group_attributes = data_bag_item(new_resource.bag, new_resource.app_group)["properties"]
+  app_attributes = data_bag_item(new_resource.bag, "#{new_resource.app_group}_#{new_resource.app}")["properties"]
+  instance_attributes = data_bag_item(new_resource.bag, "#{new_resource.app_group}_#{new_resource.app}_#{new_resource.instance}")["properties"]
 
-    app_group_attributes = data_bag_item(new_resource.bag, new_resource.app_group)
-    app_attributes = data_bag_item(new_resource.bag, "#{new_resource.app_group}_#{new_resource.app}")
-    instance_attributes = data_bag_item(new_resource.bag, "#{new_resource.app_group}_#{new_resource.app}_#{new_resource.instance}")
-
+  converge_by "Check if user already exists" do
+    user new_resource.owner do
+      home "/home/#{new_resource.owner}"
+      not_if "test -e /home/#{new_resource.owner}"
+    end
   end
 
-  template new_resource.file_path do
+  converge_by "Check to make sure template folder still exists" do
+    directory "/" + new_resource.name.split('/')[1..-2].join('/') do
+      owner new_resource.owner
+      group new_resource.group
+      mode new_resource.mode
+      recursive true
+    end
+  end
+
+  attributes = app_group_attributes.merge!(app_attributes)
+  attributes = attributes.merge!(instance_attributes)
+
+  template new_resource.name do
     source new_resource.template_path
     cookbook new_resource.template_cookbook
 
@@ -35,14 +50,14 @@ action :create do
     group new_resource.group
 
     variables(
-      :app_group_attributes => app_group_attributes,
+      :attributes => attributes,
       :app_attributes => app_attributes,
       :instance_attributes => instance_attributes,
-      :template_pre_key => template_pre_key,
-      :template_post_key => template_post_key,
-      :template_separator => template_separator,
-      :template_pre_value => template_pre_value,
-      :template_post_value => template_post_value
+      :template_pre_key => new_resource.template_pre_key,
+      :template_post_key => new_resource.template_post_key,
+      :template_separator => new_resource.template_separator,
+      :template_pre_value => new_resource.template_pre_value,
+      :template_post_value => new_resource.template_post_value
 
     )
 
@@ -128,7 +143,7 @@ end
 #   unless jar_exists
 #     Chef::Log.warn "\n" +
 #       "=====================================================================\n" +
-#       "#{app_name} propertyman service cannot start until #{jar_file} is deployed!\n" +
+#       "#{app_name} property_file service cannot start until #{jar_file} is deployed!\n" +
 #       "=====================================================================\n"
 #   end
 

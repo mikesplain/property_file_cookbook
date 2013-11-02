@@ -1,0 +1,8 @@
+{
+  "id": "my_application_group_my_awesome_application",
+  "properties": {
+    "a": "bbb",
+    "b": "ccc",
+    "e": "zzz"
+  }
+}

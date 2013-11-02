@@ -5,7 +5,7 @@ describe 'dw_test::default' do
   context 'install' do
 
     let(:chef_run) do
-      ChefSpec::Runner.new(step_into: ['propertyman']).converge(described_recipe)
+      ChefSpec::Runner.new(step_into: ['property_file']).converge(described_recipe)
     end
 
     before do

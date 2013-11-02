@@ -1,0 +1,7 @@
+{
+  "id": "my_application_group_my_awesome_application_instance01",
+  "properties": {
+    "a": "aaaa",
+    "b": "bbbb"
+  }
+}

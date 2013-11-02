@@ -1,6 +1,6 @@
 #
 # Author:: Mike Splain(<msplain@paypal.com>)
-# Cookbook Name:: propertyman
+# Cookbook Name:: property_file
 # Resource:: default
 
 actions :create, :delete
@@ -12,8 +12,8 @@ def initialize(*args)
 end
 
 
-attribute :file_path,          :kind_of => String, :default => nil,  :required => true, :name_attribute => true
-attribute :env,          :kind_of => Integer, :default => nil, :required => true
+attribute :name,          :kind_of => String, :default => nil,  :required => true, :name_attribute => true
+attribute :env,          :kind_of => String, :default => nil, :required => true
 
 attribute :app_group,      :kind_of => String, :default => nil
 attribute :app,   :kind_of => String, :default => ""
@@ -32,7 +32,7 @@ attribute :template_pre_value, :kind_of => String, :default => nil
 attribute :template_post_value, :kind_of => String, :default => nil
 
 attribute :template_path, :kind_of => String, :default => "properties.erb"
-attribute :template_cookbook, :kind_of => String, :default => "propertyman"
+attribute :template_cookbook, :kind_of => String, :default => "property_file"
 
 
 #     # Upstart script created based on the app_name

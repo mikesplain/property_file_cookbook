@@ -1,4 +1,4 @@
-name             'propertyman'
+name             'property_file'
 maintainer       'Mike Splain'
 maintainer_email 'msplain@paypal.com'
 license          'Apache 2.0'

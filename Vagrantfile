@@ -10,7 +10,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.log_level = :debug
-    chef.add_recipe "propertyman_test"
+    chef.add_recipe "property_file_test"
     chef.add_recipe "minitest-handler"
+
+    chef.data_bags_path = "test/data_bags"
   end
 end

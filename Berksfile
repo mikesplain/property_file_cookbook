@@ -3,7 +3,7 @@ site :opscode
 metadata
 
 group :test, :integration do
-  cookbook "propertyman_test", :path => "./test/cookbooks/propertyman_test"
+  cookbook "property_file_test", :path => "./test/cookbooks/property_file_test"
 end
 
 group :integration do
