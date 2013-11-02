@@ -143,7 +143,7 @@ end
 #   unless jar_exists
 #     Chef::Log.warn "\n" +
 #       "=====================================================================\n" +
-#       "#{app_name} property_file service cannot start until #{jar_file} is deployed!\n" +
+#       "#{app_name} property_file service cannot start until #{jar_file} is test_usered!\n" +
 #       "=====================================================================\n"
 #   end
 
@@ -186,7 +186,7 @@ end
 
 #       supports :restart => false, :status => true
 
-#       # Only start the service if the JAR is deployed to this server
+#       # Only start the service if the JAR is test_usered to this server
 #       action (jar_exists ? [:enable, :start] : :nothing)
 #     end
 
