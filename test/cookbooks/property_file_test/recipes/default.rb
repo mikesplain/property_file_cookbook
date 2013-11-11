@@ -6,7 +6,7 @@ property_file node[:property_file_test][:properties].to_s do
   instance "instance01"
 
   owner "test_user"
-  group "test_group"
+  group "test_user"
 
   mode 0755
 end

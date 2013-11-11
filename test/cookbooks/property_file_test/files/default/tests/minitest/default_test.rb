@@ -16,7 +16,7 @@ describe_recipe "property_file_test::default" do
     directory("/usr/share/property_file/app")
       .must_exist
       .with(:owner, "test_user")
-      .with(:group, "test_group")
+      .with(:group, "test_user")
       .with(:mode, 0755)
   end
 
@@ -24,7 +24,7 @@ describe_recipe "property_file_test::default" do
     file("/usr/share/property_file/app/properties.yml")
       .must_exist
       .with(:owner, "test_user")
-      .with(:group, "test_group")
+      .with(:group, "test_user")
       .with(:mode, 0755)
   end
 
