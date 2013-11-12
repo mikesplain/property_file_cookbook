@@ -1,4 +1,4 @@
-property_file node[:property_file_test][:properties].to_s do
+property_file node[:property_file_test][:properties] do
   env node[:property_file_test][:env]
 
   app_group "my_application_group"
