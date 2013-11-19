@@ -23,7 +23,7 @@ action :create do
   instance_attributes = data_bag_item(new_resource.bag, "#{new_resource.app_group}_#{new_resource.app}_#{new_resource.instance}")['properties']
 
   converge_by 'Check if user already exists' do
-    user new_resource.owner do
+    user "#{new_resource.owner}" do
       home "/home/#{new_resource.owner}"
       not_if "test -e /home/#{new_resource.owner}"
     end
@@ -54,11 +54,11 @@ action :create do
       new_resource: new_resource
     )
 
-    # notifies :restart ### add service flag!
+    notifies :restart, "service#{new_resource.service}" if new_resource.service
 
   end
 
-
+new_resource.updated_by_last_action(true)
 end
 
 

@@ -6,3 +6,4 @@ description       'This cookbook is used with test-kitchen to test the parent co
 version           '1.0.0'
 
 depends 'property_file'
+depends 'jetty'

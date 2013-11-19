@@ -19,11 +19,12 @@ attribute :app_group,      kind_of: String, default: nil
 attribute :app,   kind_of: String, default: ''
 attribute :instance,      kind_of: String, default: nil
 
-attribute :owner,          kind_of: String, default: nil
-attribute :group,         kind_of: String, default: nil
+attribute :owner,          kind_of: String, default: "root"
+attribute :group,         kind_of: String, default: "root"
 attribute :mode,         kind_of: Integer, default: nil
 
 attribute :bag,          kind_of: String, default: 'property_files'
+attribute :service,          kind_of: String, default: nil
 
 attribute :template_pre_key,  kind_of: String, default: nil
 attribute :template_post_key, kind_of: String, default: nil

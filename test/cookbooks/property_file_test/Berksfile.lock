@@ -1,16 +1,15 @@
 {
   "sources": {
-    "property_file": {
-      "path": "."
-    },
     "property_file_test": {
-      "path": "./test/cookbooks/property_file_test"
-    },
-    "minitest-handler": {
-      "locked_version": "1.0.0"
+      "path": "."
     },
     "jetty": {
       "locked_version": "0.1.2"
+    },
+    "property_file": {
+      "locked_version": "0.0.1",
+      "git": "https://github.com/mikesplain/property_file_cookbook",
+      "ref": "03be5ea14a7dad7787ae3ae2ec0b7ee82c55f69b"
     },
     "java": {
       "locked_version": "1.14.0"
