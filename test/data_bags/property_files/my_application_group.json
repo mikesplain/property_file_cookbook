@@ -3,6 +3,10 @@
   "properties": {
     "a": "aaaa",
     "b": "bbbb",
-    "aa": "sdfdf"
+    "aa": "sdfdf",
+    "Apps": {
+      "Name": "a",
+      "property": "b"
+    }
   }
 }
