@@ -2,7 +2,8 @@
 # Note: This file is managed by Chef property_file and local changes will be overwritten
 #
 
-<% @attributes.each do |key,value| %>
-<%= @template_pre_key %><%= key %><%= @template_post_key %><%= @template_separator %><%= @template_pre_value %><%= value %><%= @template_post_value %>
-<% end %>
+
+<% hash_to_properties(@attributes).each do |line| -%>
+<%= line %>
+<% end -%>
 
