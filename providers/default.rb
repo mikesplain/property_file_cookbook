@@ -54,7 +54,7 @@ action :create do
       new_resource: new_resource
     )
 
-    notifies :restart, "service#{new_resource.service}" if new_resource.service
+    notifies :restart, "service[#{new_resource.service}]" if new_resource.service
 
   end
 

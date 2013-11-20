@@ -6,6 +6,9 @@
     "jetty": {
       "locked_version": "0.1.2"
     },
+    "apt": {
+      "locked_version": "2.3.0"
+    },
     "property_file": {
       "locked_version": "0.0.1",
       "git": "https://github.com/mikesplain/property_file_cookbook",
