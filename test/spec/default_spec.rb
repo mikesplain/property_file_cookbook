@@ -9,10 +9,10 @@ describe 'property_file_test::default' do
     end
 
     before do
-      stub_data_bag_item("property_files", "my_application_group").and_return({"id" => "my_application_group","properties" => {"a" => "aaaa","b" => "bbbb","aa" => "sdfdf","Apps" => {"Name" => "a","property" => "bbc"}}})
-      stub_data_bag_item("property_files", "my_application_group_my_awesome_application").and_return({"id" => "my_application_group_my_awesome_application","properties" => {"a" => "bbb","b" => "ccc","e" => "zzz"}})
-      stub_data_bag_item("property_files", "my_application_group_my_awesome_application_instance01").and_return({"id" => "my_application_group_my_awesome_application_instance01","properties" => {"a" => "aaaa","b" => "bbbb"}})
-      stub_command("test -e /home/test_user").and_return(false)
+      stub_data_bag_item('property_files', 'my_application_group').and_return({ 'id' => 'my_application_group', 'properties' => { 'a' => 'aaaa', 'b' => 'bbbb', 'aa' => 'sdfdf', 'Apps' => { 'Name' => 'a', 'property' => 'bbc' } } })
+      stub_data_bag_item('property_files', 'my_application_group_my_awesome_application').and_return({ 'id' => 'my_application_group_my_awesome_application', 'properties' => { 'a' => 'bbb', 'b' => 'ccc', 'e' => 'zzz' } })
+      stub_data_bag_item('property_files', 'my_application_group_my_awesome_application_instance01').and_return({ 'id' => 'my_application_group_my_awesome_application_instance01', 'properties' => { 'a' => 'aaaa', 'b' => 'bbbb' } })
+      stub_command('test -e /home/test_user').and_return(false)
     end
 
     it 'creates the app user' do

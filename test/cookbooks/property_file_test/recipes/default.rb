@@ -1,5 +1,5 @@
-include_recipe "apt"
-include_recipe "jetty"
+include_recipe 'apt'
+include_recipe 'jetty'
 
 property_file node[:property_file_test][:properties] do
   env node[:property_file_test][:env]
