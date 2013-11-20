@@ -42,11 +42,11 @@ describe_recipe 'property_file_test::default' do
     it { config.must_include 'e=zzz' }
 
     it { config.must_include 'Apps=' }
-    
+
     it { config.must_include '  Name=a' }
 
     it { config.must_include '  property=b' }
-    
+
   end
 
 end

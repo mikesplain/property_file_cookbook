@@ -19,8 +19,8 @@ attribute :app_group,      kind_of: String, default: nil
 attribute :app,   kind_of: String, default: ''
 attribute :instance,      kind_of: String, default: nil
 
-attribute :owner,          kind_of: String, default: "root"
-attribute :group,         kind_of: String, default: "root"
+attribute :owner,          kind_of: String, default: 'root'
+attribute :group,         kind_of: String, default: 'root'
 attribute :mode,         kind_of: Integer, default: nil
 
 attribute :bag,          kind_of: String, default: 'property_files'
@@ -33,8 +33,7 @@ attribute :template_pre_value, kind_of: String, default: nil
 attribute :template_post_value, kind_of: String, default: nil
 
 attribute :template_separator_before_sub, kind_of: String, default: '='
-attribute :template_sub_indent, kind_of: String, default: "  "
+attribute :template_sub_indent, kind_of: String, default: '  '
 
 attribute :template_path, kind_of: String, default: 'properties.erb'
 attribute :template_cookbook, kind_of: String, default: 'property_file'
-

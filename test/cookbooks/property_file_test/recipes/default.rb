@@ -12,5 +12,5 @@ property_file node[:property_file_test][:properties] do
   group 'test_user'
 
   mode 0755
-  service "jetty"
+  service 'jetty'
 end

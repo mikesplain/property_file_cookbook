@@ -8,5 +8,5 @@ def hash_to_properties(hash, lines = [], indent = 0)
       lines << "#{indent_string}#{@new_resource.template_pre_key}#{name}#{@new_resource.template_post_key}#{@new_resource.template_separator}#{@new_resource.template_pre_value}#{value}#{@new_resource.template_post_value}"
     end
   end
-  return lines
+  lines
 end
