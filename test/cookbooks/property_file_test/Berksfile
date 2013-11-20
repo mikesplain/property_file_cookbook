@@ -3,4 +3,5 @@ site :opscode
 metadata
 
 cookbook 'jetty'
+cookbook 'apt'
 cookbook 'property_file', :git => "https://github.com/mikesplain/property_file_cookbook"

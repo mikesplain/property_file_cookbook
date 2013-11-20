@@ -7,3 +7,4 @@ version           '1.0.0'
 
 depends 'property_file'
 depends 'jetty'
+depends 'apt'
